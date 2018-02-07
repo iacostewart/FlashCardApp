@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Login extends Component {
 
@@ -20,10 +20,15 @@ class Login extends Component {
         });
     }
 
-    handleSubmit(v) {
-        console.log(this.state)
-        this.props.submit(this.state)
-        v.preventDefault()
+    handleSubmit(event) {
+        fetch("server endpoint api", {
+            mehtod: 'POST',
+            body: JSON.stringify(this.state),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+              })
+        })
+        event.preventDefault()
     }
 
     render() {

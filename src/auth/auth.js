@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Input } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import './auth.css'
 import Signup from './signup';
 import Login from './login';
