@@ -22,7 +22,7 @@ class Login extends Component {
 
     handleSubmit(event) {
         fetch("server endpoint api", {
-            mehtod: 'POST',
+            method: 'POST',
             body: JSON.stringify(this.state),
             headers: new Headers({
                 'Content-Type': 'application/json'
