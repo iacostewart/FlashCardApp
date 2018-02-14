@@ -26,8 +26,7 @@ class Signup extends Component {
             method: 'POST',
             body: JSON.stringify({user:this.state}),
             headers: new Headers({
-                'Content-Type': 'application/json',
-                Auth
+                'Content-Type': 'application/json'
               })
 
         }).then(
