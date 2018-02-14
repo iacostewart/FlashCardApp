@@ -69,7 +69,7 @@ class WorkoutCreate extends React.Component {
                         <Label for="description">Notes</Label>
                         <Input id="description" type="text" name="description" placeholder="enter description" onChange={this.handleChange} />
                     </FormGroup>
-                    <Button type="submit"> Submit </Button>
+                    <Button type="submit" color="primary"> Submit </Button>
                 </Form>
             </div>
         )

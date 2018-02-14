@@ -38,6 +38,7 @@ class Signup extends Component {
         event.preventDefault()
     }
 
+    // This is the start of basic validation, but you can do a lot with this.
     validateSignUp(event) {
         this.setState({
             errorMessage:'Fields must not be empty'
@@ -46,6 +47,7 @@ class Signup extends Component {
     }
 
     render() {
+        // here for validation
         const submitHandler = !this.state.username ? this.validateSignUp : this.handleSubmit
         return (
             <div>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+// this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
+
 class Login extends Component {
 
     constructor(props) {

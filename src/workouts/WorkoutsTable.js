@@ -8,7 +8,7 @@ const WorkoutTable = (props) => {
         <div>
             <h3>History</h3>
             <hr />
-            <Table>
+            <Table hover striped>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -27,7 +27,7 @@ const WorkoutTable = (props) => {
                                     <td>{workout.result}</td>
                                     <td>{workout.def}</td>
                                     <td>{workout.description}</td>
-                                    <td><Button id={workout.id} onClick={props.delete} >Delete</Button></td>
+                                    <td><Button id={workout.id} onClick={props.delete} color="danger">Delete</Button></td>
                                 </tr>
                             )
                         })

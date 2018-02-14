@@ -3,6 +3,7 @@ import WorkoutCreate from './WorkoutCreate';
 import { Container, Row, Col } from 'reactstrap';
 import WorkoutsTable from './WorkoutsTable';
 
+// this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
 
 class WorkoutIndex extends React.Component {
 
