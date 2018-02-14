@@ -41,7 +41,11 @@ class App extends Component {
   protectedViews() {
 
     if (this.state.sessionToken === localStorage.getItem('token')) {
-      return <Route path='/' exact={true} component={Splash} />
+      return (
+        <Route path='/' exact={true}>
+          <Splash sessionToken={this.state.sessionToken} />
+        </Route>
+      )
     } else {
       return (
         <Route path="/auth" exact={true} >

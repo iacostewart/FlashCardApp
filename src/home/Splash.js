@@ -1,4 +1,5 @@
 import React from 'react';
+import WorkoutIndex from '../workouts/WorkoutIndex';
 
 class Splash extends React.Component{
 
@@ -6,6 +7,7 @@ class Splash extends React.Component{
         return (
             <div>
                 Welcome user!
+                <WorkoutIndex token={this.props.sessionToken}/>
             </div>
         )
     }
