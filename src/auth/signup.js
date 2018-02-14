@@ -5,14 +5,14 @@ class Signup extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: ''
+            username: '',
+            password: '',
+            isEmpty: true
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.validateSignUp = this.validateSignUp.bind(this);
     }
 
     handleChange(event) {
@@ -22,38 +22,43 @@ class Signup extends Component {
     }
 
     handleSubmit(event) {
-        fetch("server endpoint api", {
-            mehtod: 'POST',
-            body: JSON.stringify(this.state),
+        fetch("http://localhost:3000/api/user", {
+            method: 'POST',
+            body: JSON.stringify({user:this.state}),
             headers: new Headers({
                 'Content-Type': 'application/json'
               })
-        })
+        }).then(
+            (response) => response.json()
+        ).then((data) => {
+            this.props.setToken(data.sessionToken)
+
+        }) 
         event.preventDefault()
     }
 
-    render() {
-        return (
+    validateSignUp(event) {
+        this.setState({
+            errorMessage:'Fields must not be empty'
+        })
+        event.preventDefault();
+    }
 
+    render() {
+        const submitHandler = !this.state.username ? this.validateSignUp : this.handleSubmit
+        return (
             <div>
                 <h1>Sign Up</h1>
                 <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellat, atque nulla, soluta vero reprehenderit numquam incidunt, rem quaerat quos voluptatum perferendis. Distinctio culpa iste atque blanditiis placeat qui ipsa?</h6>
-                <Form onSubmit={this.handleSubmit} >
+                <Form onSubmit={submitHandler} >
                     <FormGroup>
-                        <Label for="firstName">First Name</Label>
-                        <Input id="firstName" type="text" name="firstName" placeholder="enter first name" onChange={this.handleChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="lastName">Last Name</Label>
-                        <Input id="lastName" type="text" name="lastName" placeholder="enter last name" onChange={this.handleChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input id="email" type="text" name="email" placeholder="enter email" onChange={this.handleChange} />
+                        <Label for="username">username</Label>
+                        <Input id="username" type="text" name="username" placeholder="enter username" onChange={this.handleChange} />
+                        {this.state.errorMessage && <span className="error">user name is required</span>}
                     </FormGroup>
                     <FormGroup>
                         <Label for="password">Password</Label>
-                        <Input id="password" type="text" name="password" placeholder="enter password" onChange={this.handleChange} />
+                        <Input id="su_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
                     </FormGroup>
                     <Button type="submit"> Submit </Button>
                 </Form>

@@ -5,10 +5,23 @@ import Auth from './auth/auth';
 // import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      sessionToken: ''
+    }
+
+    this.setSessionState = this.setSessionState.bind(this)
+  }
+
+  setSessionState(token) {
+    this.setState({sessionToken: token})
+  }
+
   render() {
     return (
       <div>
-        <Auth />
+        <Auth setToken={this.setSessionState} />
       </div>
     );
   }

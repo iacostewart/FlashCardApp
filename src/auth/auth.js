@@ -4,16 +4,15 @@ import './auth.css'
 import Signup from './signup';
 import Login from './login';
 
-const Auth = () => {
-
+const Auth = (props) => {
     return (
         <Container className="auth-container">
             <Row>
                 <Col md="6">
-                    <Signup />
+                    <Signup setToken={props.setToken}/>
                 </Col>
                 <Col md="6" className="login-col">
-                    <Login />
+                    <Login setToken={props.setToken}/>
                 </Col>
             </Row>
         </Container>
