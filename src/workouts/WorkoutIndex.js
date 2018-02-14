@@ -1,4 +1,8 @@
 import React from 'react';
+import WorkoutCreate from './WorkoutCreate';
+import { Container, Row, Col } from 'reactstrap';
+import WorkoutsTable from './WorkoutsTable';
+
 
 class WorkoutIndex extends React.Component {
 
@@ -8,7 +12,8 @@ class WorkoutIndex extends React.Component {
             workouts: []
         }
 
-        this.fetchWorkouts = this.fetchWorkouts.bind(this)
+        this.fetchWorkouts = this.fetchWorkouts.bind(this);
+        this.updateWorkoutsArray = this.updateWorkoutsArray.bind(this);
     }
 
     componentWillMount(){
@@ -29,12 +34,24 @@ class WorkoutIndex extends React.Component {
         })
     }
 
+    updateWorkoutsArray(){
+        this.fetchWorkouts()
+    }
+
     render() {
         console.log(this.state)
+        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts}/> :''
         return (
-            <div>
-                Workouts work
-            </div>
+            <Container>
+            <Row>
+                <Col md="3">
+                    <WorkoutCreate token = {this.props.token} updateWorkoutsArray={this.updateWorkoutsArray}/>
+                </Col>
+                <Col md="7">
+                    {workouts}
+                </Col>
+            </Row>
+        </Container>
         )
     }
 }

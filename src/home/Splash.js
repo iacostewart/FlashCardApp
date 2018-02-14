@@ -6,7 +6,6 @@ class Splash extends React.Component{
     render(){
         return (
             <div>
-                Welcome user!
                 <WorkoutIndex token={this.props.sessionToken}/>
             </div>
         )
