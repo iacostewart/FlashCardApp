@@ -1,8 +1,9 @@
 import React from 'react';
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 
 
 const WorkoutTable = (props) => {
+
     return (
         <div>
             <h3>History</h3>
@@ -14,6 +15,7 @@ const WorkoutTable = (props) => {
                         <th>Result</th>
                         <th>Definition</th>
                         <th>Description</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +27,7 @@ const WorkoutTable = (props) => {
                                     <td>{workout.result}</td>
                                     <td>{workout.def}</td>
                                     <td>{workout.description}</td>
+                                    <td><Button id={workout.id} onClick={props.delete} >Delete</Button></td>
                                 </tr>
                             )
                         })

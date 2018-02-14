@@ -39,6 +39,7 @@ class WorkoutCreate extends React.Component {
             .then((res) => res.json())
             .then((logData) => {
                 this.props.updateWorkoutsArray()
+                // this is where you would clear out the fields 
             })
     }
 

@@ -14,6 +14,7 @@ class WorkoutIndex extends React.Component {
 
         this.fetchWorkouts = this.fetchWorkouts.bind(this);
         this.updateWorkoutsArray = this.updateWorkoutsArray.bind(this);
+        this.workoutDelete = this.workoutDelete.bind(this);
     }
 
     componentWillMount(){
@@ -38,8 +39,20 @@ class WorkoutIndex extends React.Component {
         this.fetchWorkouts()
     }
 
+    workoutDelete(event){
+        fetch("http://localhost:3000/api/log", {
+            method: 'DELETE',
+            body: JSON.stringify({log: {id:event.target.id}}),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': this.props.token
+              })
+        })
+        .then((res) => this.updateWorkoutsArray())
+    }
+
     render() {
-        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts}/> : <h2>Log a workout to see table</h2> 
+        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts} token={this.props.token} delete={this.workoutDelete}/> : <h2>Log a workout to see table</h2> 
 
         return (
             <Container>
@@ -47,7 +60,7 @@ class WorkoutIndex extends React.Component {
                 <Col md="3">
                     <WorkoutCreate token = {this.props.token} updateWorkoutsArray={this.updateWorkoutsArray}/>
                 </Col>
-                <Col md="7">
+                <Col md="9">
                     {workouts}
                 </Col>
             </Row>
