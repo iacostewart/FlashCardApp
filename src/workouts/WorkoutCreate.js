@@ -10,17 +10,16 @@ class WorkoutCreate extends React.Component {
         this.state = {
             result: '',
             description: '',
-            def: '',
-            dropdownOpen: false
+            def: ''
         };
 
-        this.toggleDropDown = this.toggleDropDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     handleChange(event) {
+        console.log(event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -30,17 +29,9 @@ class WorkoutCreate extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const logData = {
-            log: {
-                def: this.state.def,
-                description: this.state.description,
-                result: this.state.result
-            }
-        }
-
         fetch("http://localhost:3000/api/log", {
             method: 'POST',
-            body: JSON.stringify(logData),
+            body: JSON.stringify({log: this.state}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -50,12 +41,6 @@ class WorkoutCreate extends React.Component {
             .then((logData) => {
                 this.props.updateWorkoutsArray()
             })
-    }
-
-    toggleDropDown() {
-        this.setState({
-            dropdownOpen: !this.state.dropdownOpen
-        });
     }
 
     render() {
@@ -72,10 +57,10 @@ class WorkoutCreate extends React.Component {
                     {/* definition */}
                     <FormGroup>
                         <Label for="def">Select Workout Type</Label>
-                        <Input type="select" name="def" id="def">
-                            <option>Time</option>
-                            <option>Weight</option>
-                            <option>Distance</option>
+                        <Input type="select" name="def" id="def" onChange={this.handleChange}>
+                            <option value="Time">Time</option>
+                            <option value="Weight">Weight</option>
+                            <option value="Distance">Distance</option>
                         </Input>
                     </FormGroup>
                     {/* description */}

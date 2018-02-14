@@ -19,7 +19,6 @@ const WorkoutTable = (props) => {
                 <tbody>
                     {
                         props.workouts.map((workout, id) => {
-                            console.log(workout)
                             return (
                                 <tr key={id}>
                                     <th scope="row">{workout.id}</th>
