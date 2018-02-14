@@ -16,7 +16,7 @@ class App extends Component {
 
     this.setSessionState = this.setSessionState.bind(this);
     this.protectedViews = this.protectedViews.bind(this);
-    this.loggout = this.protectedViews.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   setSessionState(token) {
@@ -33,8 +33,7 @@ class App extends Component {
     }
   }
 
-  loggout(){
-    console.log('here')
+  logout(){
     this.setState({ sessionToken: '' });
     localStorage.removeItem('token');
   }
@@ -54,11 +53,10 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <Router>
         <div>
-          <SiteBar loggout={this.loggout}/>
+          <SiteBar clickLogout={this.logout}/>
           {this.protectedViews()}
         </div>
       </Router>
