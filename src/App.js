@@ -14,24 +14,52 @@ class App extends Component {
       sessionToken: ''
     }
 
-    this.setSessionState = this.setSessionState.bind(this)
+    this.setSessionState = this.setSessionState.bind(this);
+    this.protectedViews = this.protectedViews.bind(this);
+    this.loggout = this.protectedViews.bind(this);
   }
 
   setSessionState(token) {
-    localStorage.setItem('token', token)
-    this.setState({ sessionToken: token })
+    localStorage.setItem('token', token);
+    this.setState({ sessionToken: token });
+
+  }
+
+  componentWillMount() {
+    const token = localStorage.getItem('token')
+
+    if (token && !this.state.sessionToken) {
+      this.setState({ sessionToken: token });
+    }
+  }
+
+  loggout(){
+    console.log('here')
+    this.setState({ sessionToken: '' });
+    localStorage.removeItem('token');
+  }
+
+  protectedViews() {
+
+    if (this.state.sessionToken === localStorage.getItem('token')) {
+      return <Route path='/' exact={true} component={Splash} />
+    } else {
+      return (
+        <Route path="/auth" exact={true} >
+          <Auth setToken={this.setSessionState} />
+        </Route>
+      )
+    }
+
   }
 
   render() {
+
     return (
       <Router>
         <div>
-          <SiteBar />
-
-          <Route path="/auth" exact={true} >
-            <Auth setToken={this.setSessionState} />
-          </Route>
-          <Route path='/' exact={true} component={Splash} />
+          <SiteBar loggout={this.loggout}/>
+          {this.protectedViews()}
         </div>
       </Router>
 
