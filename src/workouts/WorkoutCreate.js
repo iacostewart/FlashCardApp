@@ -19,7 +19,6 @@ class WorkoutCreate extends React.Component {
     }
 
     handleChange(event) {
-        console.log(event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -31,7 +30,7 @@ class WorkoutCreate extends React.Component {
 
         fetch("http://localhost:3000/api/log", {
             method: 'POST',
-            body: JSON.stringify({log: this.state}),
+            body: JSON.stringify({ log: this.state }),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -56,8 +55,9 @@ class WorkoutCreate extends React.Component {
                     </FormGroup>
                     {/* definition */}
                     <FormGroup>
-                        <Label for="def">Select Workout Type</Label>
-                        <Input type="select" name="def" id="def" onChange={this.handleChange}>
+                        <Label for="def">Type</Label>
+                        <Input type="select" name="def" id="def" onChange={this.handleChange} placeholder="Type">
+                            <option></option>
                             <option value="Time">Time</option>
                             <option value="Weight">Weight</option>
                             <option value="Distance">Distance</option>

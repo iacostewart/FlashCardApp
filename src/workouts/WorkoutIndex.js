@@ -39,7 +39,8 @@ class WorkoutIndex extends React.Component {
     }
 
     render() {
-        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts}/> :''
+        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts}/> : <h2>Log a workout to see table</h2> 
+
         return (
             <Container>
             <Row>
