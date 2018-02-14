@@ -49,7 +49,7 @@ class Login extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="password">Password</Label>
-                        <Input id="li_password" type="text" name="password" placeholder="enter password" onChange={this.handleChange} />
+                        <Input id="li_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
                     </FormGroup>
                     <Button type="submit"> Submit </Button>
                 </Form>

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import Auth from './auth/auth';
-
-// import logo from './logo.svg';
-// import './App.css';
+import Auth from './auth/Auth';
+import SiteBar from './home/Navbar';
+import Splash from './home/Splash';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       sessionToken: ''
@@ -15,14 +18,23 @@ class App extends Component {
   }
 
   setSessionState(token) {
-    this.setState({sessionToken: token})
+    localStorage.setItem('token', token)
+    this.setState({ sessionToken: token })
   }
 
   render() {
     return (
-      <div>
-        <Auth setToken={this.setSessionState} />
-      </div>
+      <Router>
+        <div>
+          <SiteBar />
+
+          <Route path="/auth" exact={true} >
+            <Auth setToken={this.setSessionState} />
+          </Route>
+          <Route path='/' exact={true} component={Splash} />
+        </div>
+      </Router>
+
     );
   }
 }
