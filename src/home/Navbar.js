@@ -10,6 +10,7 @@ import {
     Button
 } from 'reactstrap';
 
+
 class SiteBar extends React.Component {
     constructor(props) {
         super(props);
@@ -33,6 +34,9 @@ class SiteBar extends React.Component {
                     <NavbarToggler onClick={this.props.loggout} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
+                        <NavItem>
+                           
+                            </NavItem>
                             <NavItem>
                                 <Button onClick={() => this.props.clickLogout()}>Logout</Button>
                             </NavItem>

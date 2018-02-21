@@ -8,9 +8,10 @@ class WorkoutCreate extends React.Component {
         super(props)
 
         this.state = {
-            result: '',
-            description: '',
-            def: ''
+            decknametype: '',
+            question: '',
+            answer: ''
+            
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,6 +27,7 @@ class WorkoutCreate extends React.Component {
 
 
     handleSubmit(event) {
+        console.log(event);
         event.preventDefault();
 
         fetch("http://localhost:3000/api/log", {
@@ -46,28 +48,21 @@ class WorkoutCreate extends React.Component {
     render() {
         return (
             <div>
-                <h3>Log a Workout</h3>
+                <h3>Create Card DAta</h3>
                 <hr />
                 <Form onSubmit={this.handleSubmit} >
-                    {/* result */}
+                   
                     <FormGroup>
-                        <Label for="result">Result</Label>
-                        <Input id="result" type="text" name="result" placeholder="enter result" onChange={this.handleChange} />
+                        <Label for="decknametype">Deck#/Name</Label>
+                        <Input id="decknametype" type="text" name="decknametype" placeholder="enter subject or deck name" onChange={this.handleChange} />
                     </FormGroup>
-                    {/* definition */}
                     <FormGroup>
-                        <Label for="def">Type</Label>
-                        <Input type="select" name="def" id="def" onChange={this.handleChange} placeholder="Type">
-                            <option></option>
-                            <option value="Time">Time</option>
-                            <option value="Weight">Weight</option>
-                            <option value="Distance">Distance</option>
-                        </Input>
+                        <Label for="question">Question</Label>
+                        <Input id="question" type="text" name="question" placeholder="Enter Question" onChange={this.handleChange} />
                     </FormGroup>
-                    {/* description */}
                     <FormGroup>
-                        <Label for="description">Notes</Label>
-                        <Input id="description" type="text" name="description" placeholder="enter description" onChange={this.handleChange} />
+                        <Label for="answer">Answer</Label>
+                        <Input id="answer" type="text" name="answer" placeholder="im not psychic.. enter the answer " onChange={this.handleChange} />
                     </FormGroup>
                     <Button type="submit" color="primary"> Submit </Button>
                 </Form>

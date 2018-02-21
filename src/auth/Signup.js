@@ -54,6 +54,7 @@ class Signup extends Component {
                 <h1>Sign Up</h1>
                 <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellat, atque nulla, soluta vero reprehenderit numquam incidunt,</h6>
                 <Form onSubmit={submitHandler} >
+                       console.log('submit');
                     <FormGroup>
                         <Label for="username">username</Label>
                         <Input id="username" type="text" name="username" placeholder="enter username" onChange={this.handleChange} />

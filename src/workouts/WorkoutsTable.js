@@ -24,9 +24,9 @@ const WorkoutTable = (props) => {
                             return (
                                 <tr key={id}>
                                     <th scope="row">{workout.id}</th>
-                                    <td>{workout.result}</td>
-                                    <td>{workout.def}</td>
-                                    <td>{workout.description}</td>
+                                    <td>{workout.decknametype}</td>
+                                    <td>{workout.question}</td>
+                                    <td>{workout.answer}</td>
                                     <td><Button id={workout.id} onClick={props.delete} color="danger">Delete</Button></td>
                                 </tr>
                             )
