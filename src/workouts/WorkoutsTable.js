@@ -6,16 +6,16 @@ const WorkoutTable = (props) => {
 
     return (
         <div>
-            <h3>History</h3>
+            <h3>mixed bag</h3>
             <hr />
             <Table hover striped>
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Result</th>
-                        <th>Definition</th>
-                        <th>Description</th>
-                        <th></th>
+                        <th>decknametype</th>
+                        <th>Question</th>
+                        <th>Profetic Answer</th>
+                        <th>Non belivers click below</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +27,7 @@ const WorkoutTable = (props) => {
                                     <td>{workout.decknametype}</td>
                                     <td>{workout.question}</td>
                                     <td>{workout.answer}</td>
-                                    <td><Button id={workout.id} onClick={props.delete} color="danger">Delete</Button></td>
+                                    <td><Button id={workout.id} onClick={props.delete}  color="danger">Delete</Button></td>
                                 </tr>
                             )
                         })
