@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter,  Form  } from 'reactstrap';
 import AdminNewDeckForm from './AdminNewDeckForm';
 
 class AdminDeckModal extends React.Component {
@@ -13,6 +13,7 @@ class AdminDeckModal extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.changeBackdrop = this.changeBackdrop.bind(this);
+    console.log(props)
   }
 
   toggle() {
@@ -39,7 +40,7 @@ class AdminDeckModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-lg {this.props.className}" backdrop={this.state.backdrop}>
           <ModalHeader toggle={this.toggle}>Create a Deck</ModalHeader>
           <ModalBody>
-           <AdminNewDeckForm />
+           <AdminNewDeckForm sessionToken={this.state.sessionToken} />
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>PassOn Wisdom</Button>{' '}

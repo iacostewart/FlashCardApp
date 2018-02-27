@@ -1,0 +1,179 @@
+Class components have state, functional components do not. 
+functional components receive state from props from the parent class components 
+
+props dosent exist in this one.. we need to use this.props to acess it in the class component 
+
+its important to use stateful containers if you need to manage state or access lifecycle hooks.. 
+    otherwise us funcional components or "dumb" components.
+
+
+Component LIfecycle 
+
+only avalialble in stateful components 
+
+executed during creation: 
+    constructor()--- renders first 
+            if we use this.. constructor(props)
+                                           we have to set up state.. 
+                        super(props)  
+    constructors is the only place we can call state in a component. 
+                    we need to use super(props) 
+
+                    we would use this to access properties from its parent containers. 
+
+
+every stateful componet needs to have a render.. 
+
+
+
+                  we should not call out to a webserver.. a request that comes back and rerendering of the application.  aka unpredictbale state. 
+
+    componentWillMount() 
+
+            this exists for historic reasons, we use it to update our state, but its not used very often. 
+    componentDidMount()
+
+
+    render() 
+        this is a image of what the dom needs to look like. How the application should look like via a html application. 
+            decides what gets rendered for this component. 
+
+    
+        Renders child components 
+
+
+        componentDidMount 
+            can reach out for data but dont setState here because it will just rerender the page. 
+
+
+
+class start with Capital first letter... extends component {
+
+        render method () {
+
+
+        }
+}
+
+
+
+COMPONENT LIFECYCE  ------ UPDATE -------- TRIGGERED BY PARENT--------
+
+componentWillReceiveProps(nextProps)
+
+shouldComponentUpdate(netProps, nextState)
+    we get two arguments, up comming props and upcomming state 
+
+    if we return true here the updateing continues
+    if we return false the updateing stops. 
+
+false will save preformance.. but could cause a false state. 
+
+    true  
+    
+    componentWillUpdate(nextProps, nextState)
+
+    do sync state to props
+    dont cause-side effects
+
+render() method is reached again. 
+    then it will update all child components 
+
+then it will call componentDidUpdate() 
+    dont call state here it will cause a refresh. 
+
+
+
+    COMPONENT LIFECYCEL ====== uPDATE00-------- TRIGGERED BY INTERNAL CHANGE
+
+
+
+
+
+
+
+
+RENDERING AND UPDATEING.......
+
+     updateing happnes from top to bottom... 
+            From APP down the Shop and users.
+
+    shop and users could be class containers to handleing infomation from thier children 
+            when state changes in the parents it flows down to the children. 
+
+
+                       ----------APP----------- 
+
+                    SHOP                    USERS
+              LIST        CART         USER1   USER2   USER 3 
+
+
+
+
+
+
+
+
+
+
+            AUX......... AND THE MAGIC THEIR IN...   HOC 
+
+        in the SRC file     we create an Aux.js file.. 
+
+    inside of the Aux.js file it looks like this. 
+
+
+    const aux = (props) => props.children;
+
+
+    export default aux;
+
+
+                    this allows us to wrap continers with out useing divs.. or other html elements that we dont need to use for styling purposes. 
+
+                sometimes useing a div in this way can actually destroy our styling in the case of useing felx box.. we just need to import the Aux form './src/aux';  
+                and use the <Aux> 
+                            </Aux>   around our desired components. 
+
+
+                   if our project uses REact 16.2 we can nuse a built in Aux component a so called fragment 
+
+
+    ________________________________________________     
+
+
+
+
+
+    SET STATE.... WHEN TO USE IT...     
+
+togglePersonsHandler = () {
+    const doesShow = this.state. showPersons;
+    this.setState( ( prevState, props) => {
+        return { 
+            showPersons: !doesShow, 
+            toggleClicked: prefState.toggledClick +1 
+        }
+    })
+}
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+ref elements are usefull but they are complicated and created with equil parts of MAGIC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

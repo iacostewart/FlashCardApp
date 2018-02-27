@@ -2,6 +2,8 @@ import React from 'react';
 import WorkoutCreate from './WorkoutCreate';
 import { Container, Row, Col } from 'reactstrap';
 import WorkoutsTable from './WorkoutsTable';
+import CardsEdit from './CardsEdit'
+
 
 // this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
 
@@ -10,15 +12,17 @@ class WorkoutIndex extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            workouts: []
+            workouts: [],
+            selectedCard: {}
         }
-
+console.log(this.props.state)
         this.fetchWorkouts = this.fetchWorkouts.bind(this);
         this.updateWorkoutsArray = this.updateWorkoutsArray.bind(this);
         this.workoutDelete = this.workoutDelete.bind(this);
+        this.updateCard = this.updateCard.bind(this);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.fetchWorkouts()
     }
 
@@ -34,10 +38,12 @@ class WorkoutIndex extends React.Component {
         .then((logData) => {
             return this.setState({workouts: logData})
         })
+   console.log(this.props.state)
     }
 
     updateWorkoutsArray(){
         this.fetchWorkouts()
+        this.setState({selectedCard: {}})
     }
 
     workoutDelete(event){
@@ -52,9 +58,20 @@ class WorkoutIndex extends React.Component {
         .then((res) => this.updateWorkoutsArray())
     }
 
-    render() {
-        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts} token={this.props.token} delete={this.workoutDelete}/> : <h2>Log a workout to see table</h2> 
 
+    workoutUpdate(event) {
+        
+    }
+
+    
+
+updateCard(event, card) {
+    console.log('uddateCArd')
+     this.setState({selectedCard: card})
+}
+
+    render() {
+        const workouts = this.state.workouts.length >= 1 ? <WorkoutsTable workouts={this.state.workouts} token={this.props.token} delete={this.workoutDelete} update={this.updateCard}/> : <h2>Log a workout to see table</h2> 
         return (
             <Container>
             <Row>
@@ -65,6 +82,11 @@ class WorkoutIndex extends React.Component {
                     {workouts}
                 </Col>
             </Row>
+          <Row>
+              <Col>
+              <CardsEdit card={this.state.selectedCard}  token = {this.props.token} refreshcards={this.updateWorkoutsArray}/>
+              </Col>
+          </Row>    
         </Container>
         )
     }

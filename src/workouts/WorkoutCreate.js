@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
+// import styled from 'styled-components';
 
 class WorkoutCreate extends React.Component {
 
@@ -8,6 +8,7 @@ class WorkoutCreate extends React.Component {
         super(props)
 
         this.state = {
+            subject: '',
             decknametype: '',
             question: '',
             answer: ''
@@ -16,20 +17,22 @@ class WorkoutCreate extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        console.log(props);
     }
 
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
+        
     }
-
+    
 
     handleSubmit(event) {
-        console.log(event);
+        
         event.preventDefault();
 
+        
         fetch("http://localhost:3000/api/log", {
             method: 'POST',
             body: JSON.stringify({ log: this.state }),
@@ -39,6 +42,7 @@ class WorkoutCreate extends React.Component {
             })
         })
             .then((res) => res.json())
+            // console.log('hello')
             .then((logData) => {
                 this.props.updateWorkoutsArray()
                 // this is where you would clear out the fields 
@@ -51,7 +55,17 @@ class WorkoutCreate extends React.Component {
                 <h3>Create Card DAta</h3>
                 <hr />
                 <Form onSubmit={this.handleSubmit} >
-                   
+                <FormGroup>
+                        <Label for="subject">Subject</Label>
+                        <select name="subject" id="subject" type="text"  onChange={this.handleChange}>
+                        <option value ="science" >Science</option>
+                        <option value ="html" >HTML</option>
+                        <option value ="bootstrap" >BootStrap</option>
+                        <option value ="state" >State</option>
+                        <option value ="this" >.this</option>
+                        
+                        </select>
+                    </FormGroup>
                     <FormGroup>
                         <Label for="decknametype">Deck#/Name</Label>
                         <Input id="decknametype" type="text" name="decknametype" placeholder="enter subject or deck name" onChange={this.handleChange} />

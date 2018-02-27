@@ -21,6 +21,7 @@ class Signup extends Component {
         });
     }
 
+
     handleSubmit(event) {
         fetch("http://localhost:3000/api/user", {
             method: 'POST',
@@ -29,14 +30,42 @@ class Signup extends Component {
                 'Content-Type': 'application/json'
               })
 
-        }).then(
-            (response) => response.json()
-        ).then((data) => {
+        }).then(response => {
+            if (response.status !== 200) {
+                console.log('Error: ' + response.status);
+                return;
+            }
+        
+            response.json().then((data) => {
             this.props.setToken(data.sessionToken)
-
-        }) 
+        });
+    })
         event.preventDefault()
     }
+
+
+
+    // handleSubmit(event) {
+    //     fetch("http://localhost:3000/api/user", {
+    //         method: 'POST',
+    //         body: JSON.stringify({user:this.state}),
+    //         headers: new Headers({
+    //             'Content-Type': 'application/json'
+    //           })
+
+    //     }).then(response => {
+    //         if(response.status !==200) {
+    //             console.log('Error: ' +response.status);
+    //             return;
+    //         }
+
+    //     })
+    //         response.json().then((data) => {
+    //         this.props.setToken(data.sessionToken)
+    //     });
+    
+    //     event.preventDefault()
+    // }
 
     // This is the start of basic validation, but you can do a lot with this.
     validateSignUp(event) {
