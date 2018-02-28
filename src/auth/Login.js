@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {
+    BrowserRouter as Router,
+   
+    Route,
+    Switch,
+  } from 'react-router-dom';
 
 // this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
 
@@ -36,7 +42,13 @@ class Login extends Component {
 
         }) 
         event.preventDefault()
-    }
+        }
+        
+    componentWillUnmount(){
+        window.location.href="/adminland"
+    }  
+         
+    
 
     render() {
         return (
@@ -53,7 +65,7 @@ class Login extends Component {
                         <Label for="password">Password</Label>
                         <Input id="li_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
                     </FormGroup>
-                    <Button type="submit"> Submit </Button>
+                    <Button type="submit" > Submit </Button>
                 </Form>
             </div>
         )

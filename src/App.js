@@ -8,6 +8,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+
 import UserSplash from './home/UserSplash';
 import StackMyDeck from './MyDecks/StackMyDeck';
 import AdminSplash from './home/Admin/AdminSplash';
@@ -46,7 +47,13 @@ class App extends Component {
     this.setState({ sessionToken: '',
   isLoggedIn : false });
     localStorage.removeItem('token');
+    
   }
+
+  Clogin(){
+    window.location.href = "/login";
+  }
+
 
   protectedViews() {
 
@@ -83,7 +90,8 @@ class App extends Component {
       <div className="main">
       <Router>
         <div>
-          <SiteBar clickLogout={this.logout} isLoggedIn={this.state.isLoggedIn}/>
+       
+          <SiteBar clickLogout={this.logout} isLoggedIn={this.state.isLoggedIn} clickLogin={this.Clogin} />
           {this.protectedViews()}
         </div>
       </Router>

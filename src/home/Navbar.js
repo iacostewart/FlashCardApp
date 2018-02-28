@@ -10,6 +10,7 @@ import {
     Button,
     Col
 } from 'reactstrap';
+import { Link, Route, Redirect } from 'react-router'
 
 
 
@@ -51,7 +52,7 @@ class SiteBar extends React.Component {
                             </Col>
                             <Col sm="2" md={{ size:2, ofset: 1}}>
                             <NavItem>
-                                <Button onClick={() => this.props.clickLogout()}>{this.props.isLoggedIn ? 'LogOut' : 'logIn'} </Button>
+                                <Button onClick={this.props.isLoggedIn ? () => this.props.clickLogout() : () => this.props.clickLogin() }> {this.props.isLoggedIn ? 'LogOut' : 'logIn'} </Button>
                             </NavItem>
                             </Col>
                             <Col sm="2" md={{ size:2, ofset: 1}}>
