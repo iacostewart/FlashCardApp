@@ -27,7 +27,7 @@ console.log(this.props.state)
     }
 
     fetchWorkouts(){
-        fetch("https://flashcard-irs.herokuapp.com/3000/api/log", {
+        fetch("https://flashcard-irs.herokuapp.com/api/log", {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ console.log(this.props.state)
     }
     // http://localhost:3000
     workoutDelete(event){
-        fetch("https://flashcard-irs.herokuapp.com/3000/api/log", {
+        fetch("https://flashcard-irs.herokuapp.com/api/log", {
             method: 'DELETE',
             body: JSON.stringify({log: {id:event.target.id}}),
             headers: new Headers({

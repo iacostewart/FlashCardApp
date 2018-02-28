@@ -19,7 +19,7 @@ this.userindexUpdate = this.userindexUpdate.bind(this);
 // fetch("https://flashcard-irs.herokuapp.com/3000/api/users", {
         }
         fetchUserIndex(){
-            fetch("https://flashcard-irs.herokuapp.com/3000/api/users", {
+            fetch("https://flashcard-irs.herokuapp.com/api/users", {
                 method: 'GET',
                 headers: new Headers({
                     'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ this.userindexUpdate = this.userindexUpdate.bind(this);
             this.fetchUserIndex()
         }
         userindexDelete(event){
-            fetch("https://flashcard-irs.herokuapp.com/3000/api/users", {
+            fetch("https://flashcard-irs.herokuapp.com/api/users", {
                 method: 'DELETE',
                 body: JSON.stringify({user: {id:event.target.id}}),
                 headers: new Headers({
@@ -49,7 +49,7 @@ this.userindexUpdate = this.userindexUpdate.bind(this);
         }
 
         userindexUpdate(event) {
-            fetch("https://flashcard-irs.herokuapp.com/3000/api/users", {
+            fetch("https://flashcard-irs.herokuapp.com/api/users", {
                 method: 'PUSH',
                 body: JSON.stringify({user: {id:event.target.id}} ),
                 headers: new Headers({

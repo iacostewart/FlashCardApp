@@ -23,7 +23,7 @@ class Signup extends Component {
 
 
     handleSubmit(event) {
-        fetch("https://flashcard-irs.herokuapp.com/3000/api/user", {
+        fetch("https://flashcard-irs.herokuapp.com/api/user", {
             method: 'POST',
             body: JSON.stringify({user:this.state}),
             headers: new Headers({

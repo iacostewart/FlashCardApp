@@ -42,7 +42,7 @@ class WorkoutCreate extends React.Component {
         event.preventDefault();
 
         
-        fetch("https://flashcard-irs.herokuapp.com/3000/api/log", {
+        fetch("https://flashcard-irs.herokuapp.com/api/log", {
             method: 'POST',
             body: JSON.stringify({ log: this.state }),
             headers: new Headers({

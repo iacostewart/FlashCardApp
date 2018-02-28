@@ -31,7 +31,7 @@ class Login extends Component {
     }
 
     handleSubmit(event) {
-        fetch("https://flashcard-irs.herokuapp.com/3000/api/login", {
+        fetch("https://flashcard-irs.herokuapp.com/api/login", {
             method: 'POST',
             body: JSON.stringify({user:this.state}),
             headers: new Headers({
