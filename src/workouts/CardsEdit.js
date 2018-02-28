@@ -55,7 +55,7 @@ handleSubmit(event) {
     event.preventDefault();
 
     
-    fetch("http://localhost:3000/api/log", {
+    fetch("https://flashcard-irs.herokuapp.com/3000/api/log", {
         method: 'PUT',
         body: JSON.stringify({ log: this.state }),
         headers: new Headers({

@@ -23,7 +23,7 @@ class Signup extends Component {
 
 
     handleSubmit(event) {
-        fetch("http://localhost:3000/api/user", {
+        fetch("https://flashcard-irs.herokuapp.com/3000/api/user", {
             method: 'POST',
             body: JSON.stringify({user:this.state}),
             headers: new Headers({
@@ -46,7 +46,7 @@ class Signup extends Component {
 
 
     // handleSubmit(event) {
-    //     fetch("http://localhost:3000/api/user", {
+    //     fetch("https://flashcard-irs.herokuapp.com/3000/api/user", {
     //         method: 'POST',
     //         body: JSON.stringify({user:this.state}),
     //         headers: new Headers({

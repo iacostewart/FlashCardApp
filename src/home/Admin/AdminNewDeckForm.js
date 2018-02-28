@@ -39,7 +39,7 @@ console.log(props);
       
       event.preventDefault();
 console.log(this.props.token)
-      fetch("http://localhost:3000/api/prebuilt", {
+      fetch("https://flashcard-irs.herokuapp.com/3000/api/prebuilt", {
         method: 'POST',
         body: JSON.stringify({ prebuilt: this.state }),
         headers: new Headers({
