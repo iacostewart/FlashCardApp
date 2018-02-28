@@ -1,6 +1,15 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-// import styled from 'styled-components';
+import styled from 'styled-components';
+
+
+
+const CreateMain = styled.div`
+     
+     
+`;
+
+
 
 class WorkoutCreate extends React.Component {
 
@@ -51,7 +60,7 @@ class WorkoutCreate extends React.Component {
 
     render() {
         return (
-            <div>
+            <CreateMain>
                 <h3>Create Card DAta</h3>
                 <hr />
                 <Form onSubmit={this.handleSubmit} >
@@ -80,7 +89,7 @@ class WorkoutCreate extends React.Component {
                     </FormGroup>
                     <Button type="submit" color="primary"> Submit </Button>
                 </Form>
-            </div>
+            </CreateMain>
         )
     }
 }

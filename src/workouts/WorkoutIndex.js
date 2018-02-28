@@ -45,7 +45,7 @@ console.log(this.props.state)
         this.fetchWorkouts()
         this.setState({selectedCard: {}})
     }
-
+    // http://localhost:3000
     workoutDelete(event){
         fetch("https://flashcard-irs.herokuapp.com/3000/api/log", {
             method: 'DELETE',
@@ -75,10 +75,10 @@ updateCard(event, card) {
         return (
             <Container>
             <Row>
-                <Col md="3">
+                <Col md="5">
                     <WorkoutCreate token = {this.props.token} updateWorkoutsArray={this.updateWorkoutsArray}/>
                 </Col>
-                <Col md="9">
+                <Col md="4">
                     {workouts}
                 </Col>
             </Row>
