@@ -9,8 +9,7 @@ Switch,
 } from 'react-router-dom';
 import styled from 'styled-components'
 
-const LogBack = styled.div`
-     background-color: #A4A3A3;`;
+
 
 
 
@@ -26,9 +25,9 @@ const Auth = (props) => {
         <Container className="signupContainer">
             <Row>
                 <Col md="4">
-                <LogBack>
+             
                     <Signup setToken={props.setToken}/>
-                    </LogBack>  
+                    
                 </Col>
              </Row>             
          </Container>
