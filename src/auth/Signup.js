@@ -74,7 +74,9 @@ class Signup extends Component {
         })
         event.preventDefault();
     }
-
+componentWillUnmount(){
+    window.location.href="/";
+}
     render() {
         // here for validation
         const submitHandler = !this.state.username ? this.validateSignUp : this.handleSubmit

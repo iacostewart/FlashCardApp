@@ -6,6 +6,8 @@ import {
     Route,
     Switch,
   } from 'react-router-dom';
+import styled from 'styled-components'
+
 
 // this works with the current workout log server, if there server is on a differnt port, they need to change the respective lines for fetch
 
@@ -45,7 +47,7 @@ class Login extends Component {
         }
         
     componentWillUnmount(){
-        window.location.href="/adminland"
+        window.location.href="/"
     }  
          
     
@@ -53,20 +55,22 @@ class Login extends Component {
     render() {
         return (
 
-            <div>
+            <div >
+             
                 <h1>Login</h1>
                 <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h6>
                 <Form onSubmit={this.handleSubmit} >
-                    <FormGroup>
+                    <FormGroup id='LiForm' >
                         <Label for="username">Username</Label>
                         <Input id="li_username" type="text" name="username" placeholder="enter username" onChange={this.handleChange} />
-                    </FormGroup>
-                    <FormGroup>
+                                <br/>
+                                <br/>
                         <Label for="password">Password</Label>
                         <Input id="li_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
                     </FormGroup>
-                    <Button type="submit" > Submit </Button>
+                    <Button class="button" type="submit" > Submit </Button> <a href="/" class="button">Nevermind</a>
                 </Form>
+                
             </div>
         )
     }

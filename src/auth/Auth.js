@@ -7,6 +7,11 @@ import {BrowserRouter as Router,
 Route,
 Switch,
 } from 'react-router-dom';
+import styled from 'styled-components'
+
+const LogBack = styled.div`
+     background-color: #A4A3A3;`;
+
 
 
 const Auth = (props) => {
@@ -17,13 +22,17 @@ const Auth = (props) => {
             
             
             <Route path='/signup' exact={true}>
+           
         <Container className="signupContainer">
             <Row>
                 <Col md="4">
+                <LogBack>
                     <Signup setToken={props.setToken}/>
+                    </LogBack>  
                 </Col>
              </Row>             
-         </Container>  
+         </Container>
+        
         </Route>
        
 
@@ -36,7 +45,9 @@ const Auth = (props) => {
             </Row>
         </Container>
      </Route>   
+    
         </Switch> 
+       
     )
 }
 

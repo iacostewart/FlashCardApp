@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import Auth from './auth/Auth';
 import SiteBar from './home/Navbar';
 import Splash from './home/Splash';
-import {
-  BrowserRouter as Router,
- 
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
+import styled from 'styled-components'; 
+  
+
 
 import UserSplash from './home/UserSplash';
 import StackMyDeck from './MyDecks/StackMyDeck';
 import AdminSplash from './home/Admin/AdminSplash';
+import MainBody from '../src/body'
+
+
+
 
 
 class App extends Component {
@@ -90,11 +92,10 @@ class App extends Component {
       <div className="main">
       <Router>
         <div>
-       
           <SiteBar clickLogout={this.logout} isLoggedIn={this.state.isLoggedIn} clickLogin={this.Clogin} />
           {this.protectedViews()}
         </div>
-      </Router>
+          </Router>
      
       </div>
     );

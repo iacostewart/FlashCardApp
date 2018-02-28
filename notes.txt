@@ -1,0 +1,16 @@
+<ul class="pull-left">
+<ul class="pull-right">
+
+###### used to pull navbar ul/li's to either side of the navbar 
+
+
+
+
+CSS backdrop change for modals or other things 
+
+
+   const backdrop = (props) => {
+       const cssClasses = ['backdrop', props.show ? 'backdropOPen' : 'BackdropClosed']
+
+       return <div className={cssClasses.join(')}></div> 
+   }
