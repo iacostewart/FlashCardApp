@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 const Main = styled.div`
-    background-color: pink;
+    background-color: #D3D0D8;
     padding: 5em;
     border: 2em;
     margin: 5em;

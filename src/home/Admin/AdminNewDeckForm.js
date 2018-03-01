@@ -62,8 +62,8 @@ console.log(this.props.token)
             <Input type="admindeckname" name="admindeckname" id="admindeckname" placeholder="EveryoneDoes it.. Name your Deck.." onChange={this.handleChange}/>
           </Col>
           <FormGroup>
-          <Label for="admindeckname" sm={2}>subject</Label>
-          <Col sm={4}>
+          <Label for="admindeckname" sm={6}>subject</Label>
+          <Col md={12}>
           <Input type="select" name="subject" id="subject" placeholder="subject Level" onChange={this.handleChange}>
             <option>Math</option>
             <option>Science</option>
@@ -74,20 +74,9 @@ console.log(this.props.token)
                     </FormGroup>
         </FormGroup>
         <FormGroup>
-        <Label for="admindeckname" sm={2}>Dificulity Level</Label>
+        
           <Col sm={4}>
-          <Input type="select" name="admindificulitylevel" id="admindificulitylevel" placeholder="Dificulity Level" onChange={this.handleChange}>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </Input>
+          
           </Col>
         </FormGroup>
         <FormGroup row>

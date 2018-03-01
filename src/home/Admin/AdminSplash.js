@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AdminDeckModal from './AdminDeckModal';
 import AdminBanHammer from './Banhammer';
 import AdminUserIndex from './AdminUserIndex';
-
+// import AdminDeckIndex from './AdminDeckIndex'
 
 class AdminSplash extends Component {
 
@@ -20,7 +20,7 @@ class AdminSplash extends Component {
                     <h5>... Where there is knoledge there is pain... never underestimate the power/abality of stupid people in large groups..
                             the BanHammer will help drain the pool... 
                     </h5>
-
+                    {/* <AdminDeckIndex /> */}
                     <br/>
                     {/* <AdminBanHammer /> */}
                     <br/>

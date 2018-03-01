@@ -176,4 +176,7 @@ ref elements are usefull but they are complicated and created with equil parts o
 
 
 
-
+npm run-script build
+git add .
+git commit -m "again"
+git push heroku master\r
